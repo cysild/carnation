@@ -1,0 +1,17 @@
+RewriteEngine On
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} !(\.css|\.js|\.png|\.cal|\.jpg|.jpeg|\.gif|robots|.\blog_images|\.txt|.\fancybox|\.fonts|\.gallery|\.property_images|\.images|\.idx|\.category_images|\.make|\.agent_images|\.img|\.bower_components|\.fonts|\.woff|\.woff2|.map_images|\.otf)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(css|js|images|bower_components|dis|admin|make|img|fonts|cal|plugins|idx|gallery|blog_images|fancybox|property_images|category_images|fonts|agent_images|map_images|vendor)/(.*)$ public/$1/$2 [L,NC]
+
